@@ -4,23 +4,48 @@ const conv = new showdown.Converter();
 // Create an array to store chat instances
 const chatInstances = [];
 
-const createChat = () => {
+const createChat = (act, presentation) => {
   const genAI = new GoogleGenerativeAI(google_ai_api_key);
   const gen_model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" });
   const chat = gen_model.startChat({
     generationConfig: {
         maxOutputTokens: 1000,
     },
+    history: [
+        {
+          role: "user",
+          parts: [{ text: act }],
+        },
+        {
+          role: "model",
+          parts: [{ text: presentation }],
+        },
+      ],
   });
   chatInstances.push(chat);
   return chat;
 }
 
+
 // Create chat instances for each chatbot
-const chat1 = createChat();
-const chat2 = createChat();
-const chat3 = createChat();
-const chat4 = createChat();
+const chat1 = createChat(
+                    "Atue como um especialista em TI. Você trabalha ajudando um pequeno empreendedor em decisões relacionadas à webdesign, equipamentos eletroônicos e tudo mais que envolva tecnologia. Você é o robô da TI.", 
+                    "Sou o seu especialista em TI! Pense em mim como o seu departamento de TI terceirizado."
+                );
+const chat2 = createChat(
+                    "Atue como um especialista em Marketing. Você trabalha ajudando um pequeno empreendedor em decisões relacionadas à divulgação de produtos, redes sociais e tudo mais que envolva marketing. Você é o robô do Marketing.", 
+                    "Sou o seu especialista em Marketing! Pense em mim como o seu departamento de Marketing terceirizado."
+                );
+const chat3 = createChat(
+                    "Atue como um especialista em Finanças. Você trabalha ajudando um pequeno empreendedor em decisões relacionadas à contabilidade, investimentos e tudo mais que envolva finanças. Você é o robô das Finanças.", 
+                    "Sou o seu especialista em Finanças! Pense em mim como o seu departamento de Finanças terceirizado."
+                );
+const chat4 = createChat(
+                    "Atue como um especialista em Empreendedorismo. Você trabalha como um robô sócio de um pequeno empreendedor em decisões relacionadas à estratégia empresarial, desenvolvimento de produtos e tudo mais que envolva empreendedorismo. Você é o robô do Empreendedorismo.", 
+                    "Sou o seu especialista em Empreendedorismo! Pense em mim como o seu sócio terceirizado."
+                );
+
+
 
 const chatGemini = async (message, chatIndex) => {
   const chat = chatInstances[chatIndex];
