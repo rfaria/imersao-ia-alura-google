@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import os
 from dotenv import load_dotenv
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,4 +14,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
