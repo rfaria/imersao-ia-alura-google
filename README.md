@@ -5,6 +5,6 @@
 </head>
 
 # Imersão IA: Alura + Google
-Projeto: 🤖 Robôs do Pequeno Empreendedor 💼 | <a href="https://www.linkedin.com/in/rodrigocfaria/"><i class="fa fa-linkedin-square" style="font-size:24px">---</i></i>Link</a>
+Projeto: 🤖 Robôs do Pequeno Empreendedor 💼 | <a href="https://www.linkedin.com/in/rodrigocfaria/"><img src="[pic_trulli.jpg](https://github.com/dmhendricks/signature-social-icons/blob/master/icons/round-flat-filled/35px/linkedin.png)" alt="LinkedIn"></a>
 
 https://github.com/rfaria/imersao-ia-alura-google/assets/8796054/ba1c60e1-ee07-450a-8891-9bd66185145c
